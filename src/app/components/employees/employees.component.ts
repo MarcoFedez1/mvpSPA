@@ -7,9 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './employees.component.html'
 })
 export class EmployeesComponent implements OnInit {
-
   employees: Employee[] = [];
-
   constructor( private heroeService: EmployeeService, private router: Router) {
   }
 

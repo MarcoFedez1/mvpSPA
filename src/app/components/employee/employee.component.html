@@ -1,17 +1,39 @@
-<h1 class="animated fadeIn">{{employee.name}}  <small>{{ employee.birthday }}</small></h1>
+<h1 class="animated fadeIn">{{employee.name}} </h1>
+<small class="text-muted">{{ employee.birthday }}</small>
 <hr>
 
-<div class="row animated fadeIn fast">
+<div class="row animated fadeIn medium">
     <div class="col-md-4">
         <img [src]="employee.img" class="card-img-top" [alt]="employee.nombre">
-        <br><br>
-        <a [routerLink]="['/employees']" class="btn btn-outline-danger btn-block" >Regresar</a>
-        
+        <br/><br/>
+        <div class="d-flex justify-content-center"><a [routerLink]="['/employees']" style="width: 95%;" class="btn btn-lg btn-default" >Regresar</a></div>
     </div>
     <div class="col-md-8">
         <h3>{{ employee.profile }}</h3>
         <hr>
+            <div class="card-body">
+                <p class="card-text" style="font-style: italic;">"{{ employee.biography }}"</p>
+                <p class="card-text">{{ employee.hobbies }}</p>
+                <p class="card-text">{{ employee.Tools }}</p>
+                <p class="card-text">{{ employee.projects.length }}</p>
+            </div>
     </div>
-
-
+    <table>
+        <tr *ngFor="let item of lista; let item = index">
+        <td>{{item}}</td>
+        </tr>
+    </table>
+    <!-- <ul>
+        <li *ngFor="let employee of employee">{{employee.proyectos}}</li>
+    </ul> -->
+    <!-- <p>Heroes:</p> -->
+  <!-- <ul>
+    <li *ngFor="let item of lista; let item = index">
+      {{ lista[item].name }}
+      {{ lista[item].companyname }}
+      {{ lista[item].rol }}
+      {{ lista[item].time }}
+      </li>
+  </ul> -->
+  
 </div>
