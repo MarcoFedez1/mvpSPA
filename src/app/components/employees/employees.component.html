@@ -1,12 +1,12 @@
 <div class="container" style="width: 100%; padding-top: 1%;">
-    <div style="width: 100%;" >
+    <div style="width: 100%;">
         <h3>MVP Software Solutions</h3>
         <span class="text-muted" style="font-size: 20px;">Our Team</span>
         <br />
         <hr />
-        <div class="card-columns" [style] = " getStyleDivContainer() ">
-            <div style="width: 100%; align-items: center;" *ngFor="let employee of employees; let i = index" >
-                <div class="card animated fadeIn medium"  >
+        <div class="card-columns" [style]=" getStyleDivContainer() ">
+            <div style="width: 100%; align-items: center;" *ngFor="let employee of employees; let i = index">
+                <div class="card animated fadeIn medium">
                     <img [src]="employee.img" class="card-img-top" [alt]="employee.name">
                     <div class="card-body">
                         <h5 class="card-title">{{ employee.name }}</h5>
@@ -20,9 +20,6 @@
                     </div>
                 </div>
             </div>
-  
         </div>
-  
     </div>
-  </div>
-
+</div>

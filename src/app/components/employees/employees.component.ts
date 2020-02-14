@@ -20,7 +20,7 @@ export class EmployeesComponent implements OnInit {
   }
   gotoEmployee(id: string) {
     this.router.navigate(['/employee', id]);
-  }  
+  }
 
   getStyleDivContainer() {
     let divSpace: number;
@@ -30,16 +30,16 @@ export class EmployeesComponent implements OnInit {
     divSpace = window.innerWidth * divMargen;
     divWork = window.innerWidth - divSpace;
     switch (true) {
-      case (divWork <= 700): 
+      case (divWork <= 700):
         divContainer = ' column-count: 1; heigth: 100%;';
         break;
-      case (divWork >= 701 && divWork <= 900): 
+      case (divWork >= 701 && divWork <= 900):
         divContainer = ' column-count: 2;  heigth: 100%;';
         break;
       case (divWork >= 901 && divWork <= 1200):
         divContainer = ' column-count: 3;  heigth: 100%;';
         break;
-      case (divWork >= 1201): 
+      case (divWork >= 1201):
         divContainer = ' column-count: 4;  heigth: 100%;';
         break;
     }
@@ -47,5 +47,5 @@ export class EmployeesComponent implements OnInit {
     console.log('Style = ' + divContainer);
     // sanitize the style expression
     return this.sanitizer.bypassSecurityTrustStyle(divContainer);
-  } 
+  }
 }
