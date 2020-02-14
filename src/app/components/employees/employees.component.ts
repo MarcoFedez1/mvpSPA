@@ -12,7 +12,7 @@ import { analyzeAndValidateNgModules } from '@angular/compiler';
 
 export class EmployeesComponent implements OnInit {
   employees: Employee[] = [];
-  constructor(private heroeService: EmployeeService, private router: Router) {
+  constructor(private heroeService: EmployeeService, private router: Router, private sanitizer: DomSanitizer) {
   }
 
   ngOnInit() {
@@ -21,42 +21,31 @@ export class EmployeesComponent implements OnInit {
   gotoEmployee(id: string) {
     this.router.navigate(['/employee', id]);
   }  
+
+  getStyleDivContainer() {
+    let divSpace: number;
+    let divWork: number;
+    let divContainer: string;
+    let divMargen: number = 0.10;
+    divSpace = window.innerWidth * divMargen;
+    divWork = window.innerWidth - divSpace;
+    switch (true) {
+      case (divWork <= 700): 
+        divContainer = ' column-count: 1; heigth: 100%;';
+        break;
+      case (divWork >= 701 && divWork <= 900): 
+        divContainer = ' column-count: 2;  heigth: 100%;';
+        break;
+      case (divWork >= 901 && divWork <= 1200):
+        divContainer = ' column-count: 3;  heigth: 100%;';
+        break;
+      case (divWork >= 1201): 
+        divContainer = ' column-count: 4;  heigth: 100%;';
+        break;
+    }
+    console.log('Work Space: ' + divWork);
+    console.log('Style = ' + divContainer);
+    // sanitize the style expression
+    return this.sanitizer.bypassSecurityTrustStyle(divContainer);
+  } 
 }
-
-//----------------------------------   PRUEBA
-// export class Responsive implements OnInit {
-//   private PDivContainer: string;
-//   private PCarContainer: string;
-
-//   constructor(DivContainer: string, CarContainer: string){
-//       this.PDivContainer = DivContainer;
-//       this.PCarContainer = CarContainer;
-//   }
-
-//   ngOnInit(){
-//     console.log('Holiiiiii')
-//     let divC = document.getElementById('DivCard')[0];
-//     let css = ' .div {background-color: blueviolet;}';
-//     //let head = document.getElementsByTagName('head')[0];
-//     let style = document.createElement('style');
-//     style.type = 'text/css';
-//     style.appendChild(document.createTextNode(css));
-//     divC.appendChild(style);
-//   }
-// }
-    // const divC = document.getElementById('DivCard')[0];
-    // const css = ' .div {background-color: blueviolet;}';
-    // //let head = document.getElementsByTagName('head')[0];
-    // const style = document.createElement('style');
-    // style.type = 'text/css';
-    // style.appendChild(document.createTextNode(css));
-    // divC.appendChild(style);
-    // let head = document.getElementsByName('CssClass')[0];
-    // let css = '.DivCard {background-color: blueviolet;}';
-    // let style = document.createElement('style');
-    // style.type = 'text/css';
-    // style.appendChild(document.createTextNode(css));
-    //style.appendChild(document.createAttribute(css))
-    //this.el.nativeElement.appendChild(style);
-    //head.appendChild(style);
-    //@Input('appHighlight')highlightColor: string;
