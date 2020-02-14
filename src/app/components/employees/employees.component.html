@@ -1,17 +1,17 @@
-<div style="width: 100%; padding-top: 1%;">
-    <div style="width: 15%;"></div>
-    <div lass="align-items-sm-center" style="width: 70%;">
+<!-- <link rel="stylesheet" href="employees.component.css" /> -->
+<div class="container" style="width: 100%; padding-top: 1%;">
+    <div class="align-items-center" style="width: 100%;" >
         <h3>MVP Software Solutions</h3>
         <span class="text-muted" style="font-size: 20px;">Our Team</span>
         <br />
         <hr />
-        <div class="card-columns" style="width: 100%;">
-            <div *ngFor="let employee of employees; let i = index">
-                <div class="card animated fadeIn medium">
+        <div class="card-columns" >
+            <div *ngFor="let employee of employees; let i = index" [style] = " getStyleDivContainer() " >
+                <div class="card animated fadeIn medium" [style] = " getStyleDivCardContainer() " >
                     <img [src]="employee.img" class="card-img-top" [alt]="employee.name">
                     <div class="card-body">
                         <h5 class="card-title">{{ employee.name }}</h5>
-                        <p class="card-text">{{ employee.profile }}</p>
+                        <p class="card-text">{{ employee.profile }} </p>
                         <p class="card-text"><small class="text-muted">{{ employee.birthday }}</small></p>
                         <!-- <a href = "#" [routerLink]="['/heroe', i]" class= "btn btn-outline-primary">Ver más link...</a> -->
                         <div class="d-flex justify-content-center">
@@ -25,5 +25,4 @@
         </div>
 
     </div>
-    <div style="width: 15%;"></div>
 </div>

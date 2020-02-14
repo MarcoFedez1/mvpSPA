@@ -14,6 +14,7 @@ import { EmployeesComponent } from './components/employees/employees.component';
 import { EmployeeComponent } from './components/employee/employee.component';
 import { EmployeeService } from './services/employee.service';
 import { OurServicesComponent } from './components/ourservices/ourservices.component';
+import { SanitizedComponent } from './sanitized.components.ts';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { OurServicesComponent } from './components/ourservices/ourservices.compo
     AboutComponent,
     EmployeesComponent,
     EmployeeComponent,
-    OurServicesComponent
+    OurServicesComponent,
+    SanitizedComponent
   ],
   imports: [
     BrowserModule,
