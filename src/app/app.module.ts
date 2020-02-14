@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Rutas
 import { APP_ROUTING } from './app.routes';
@@ -12,6 +13,7 @@ import { AboutComponent } from './components/about/about.component';
 import { EmployeesComponent } from './components/employees/employees.component';
 import { EmployeeComponent } from './components/employee/employee.component';
 import { EmployeeService } from './services/employee.service';
+import { OurServicesComponent } from './components/ourservices/ourservices.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import { EmployeeService } from './services/employee.service';
     AboutComponent,
     EmployeesComponent,
     EmployeeComponent,
+    OurServicesComponent
   ],
   imports: [
     BrowserModule,
